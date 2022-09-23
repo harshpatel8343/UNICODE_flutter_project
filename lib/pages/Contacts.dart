@@ -41,14 +41,22 @@ class _ContactsState extends State<Contacts> {
       ),
       body: (contacts==null)? Center(child: CircularProgressIndicator()): ListView.builder(
           itemBuilder: (BuildContext context, int index){
-            return ListTile(
-               title: Text(contacts![index].name.first),
-              onTap: (){
-                Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context)=>Contacts_info(
-                  name: contacts![index].name.toString(),
-                  num: contacts![index].phones.toString(),
-                )));
-               },
+            return Expanded(
+              child: ListTile(
+                leading: CircleAvatar(
+                  child: Icon(Icons.person),
+                  radius: 20,
+                ),
+                 title: Text(contacts![index].name.first),
+                subtitle: Text(contacts![index].phones.toString()),
+                onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context)=>Contacts_info(
+                    name: contacts![index].name.toString(),
+                    num: contacts![index].phones.toString(),
+                  )));
+                 },
+              ),
+
             );}
        ),
     );

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class Contacts_info extends StatefulWidget {
   final String name,num;
+
   const Contacts_info({Key? key, required this.name, required this.num}) : super(key: key);
 
   @override
@@ -9,7 +10,8 @@ class Contacts_info extends StatefulWidget {
 }
 
 class _Contacts_infoState extends State<Contacts_info> {
-
+  dynamic name;
+  dynamic num;
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +40,18 @@ class _Contacts_infoState extends State<Contacts_info> {
               ],
             ),
             SizedBox(height: 15),
+            ListTile(
+              leading: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+              ),
+              title: Text('Name',
+                style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 20,
+                  color: Colors.blueGrey,
+                ),
+              ),
+            ),
           ],
         ),
       ),
